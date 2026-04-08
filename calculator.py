@@ -43,11 +43,15 @@ p_vals = st.session_state.protectors[selected_protector]
 
 # 2. SESSION METADATA
 st.header("Step 1: Session Details")
-m_col1, m_col2, m_col3, m_col4 = st.columns(4)
+m_col1, m_col2, m_col3, m_col4,m_col5,m_col6,m_col7,m_col8 = st.columns(8)
 wk = m_col1.text_input("Wk", "3")
 date = m_col2.text_input("Date", "3/23/2026")
 proj = m_col3.text_input("Project", "Cybec Reh")
 place = m_col4.text_input("Place", "Iwaki")
+lognum = m_col5.text_input("Logger No.")
+pos = m_col6.text_input("Instrument / Position")
+timeStart = m_col7.text_input("Start Time")
+timeEnd = m_col8.text_input("End Time")
 
 # 3. FILE UPLOAD & PROCESSING
 st.header("Step 2: Upload Logger Data")
@@ -70,10 +74,10 @@ if uploaded_file:
             "Date": date,
             "Project": proj,
             "Place": place,
-            "Logger": "Logger 1", # Placeholder
-            "Instrument / Position": "Violin 1", # Placeholder
-            "Start Time": "1000",
-            "End Time": "1545",
+            "Logger": lognum,
+            "Instrument / Position": pos, 
+            "Start Time": timeStart,
+            "End Time": timeEnd,
             "LAeq db": effective_laeq,
             "%age Dose": dose,
             "LC Max": lcmax,
